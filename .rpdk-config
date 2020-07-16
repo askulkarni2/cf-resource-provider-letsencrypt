@@ -1,0 +1,11 @@
+{
+    "typeName": "AK::LetsEncrypt::Certificate",
+    "language": "python37",
+    "runtime": "python3.7",
+    "entrypoint": "ak_letsencrypt_certificate.handlers.resource",
+    "testEntrypoint": "ak_letsencrypt_certificate.handlers.test_entrypoint",
+    "settings": {
+        "use_docker": true,
+        "protocolVersion": "2.0.0"
+    }
+}
