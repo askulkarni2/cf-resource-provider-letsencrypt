@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
-Description: AWS SAM template for the AK::LetsEncrypt::Certificate resource type
+Description: AWS SAM template for the Custom::LetsEncrypt::Certificate resource type
 
 Globals:
   Function:
@@ -10,14 +10,14 @@ Resources:
   TypeFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: ak_letsencrypt_certificate.handlers.resource
+      Handler: custom_letsencrypt_certificate.handlers.resource
       Runtime: python3.7
       CodeUri: build/
 
   TestEntrypoint:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: ak_letsencrypt_certificate.handlers.test_entrypoint
+      Handler: custom_letsencrypt_certificate.handlers.test_entrypoint
       Runtime: python3.7
       CodeUri: build/
 

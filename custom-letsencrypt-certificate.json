@@ -1,0 +1,73 @@
+{
+    "typeName": "Custom::LetsEncrypt::Certificate",
+    "description": "Resource schema for the LetsEncrypt CloudFormation Resource.",
+    "sourceUrl": "https://github.com/askulkarni2/cf-resource-provider-letsencrypt",
+    "properties": {
+        "Email": {
+            "description": "An email address for receiving notifications.",
+            "type": "string"
+        },
+        "Domain": {
+            "description": "The domain to obtain the certificate for.",
+            "type": "string"
+        },
+        "CertificateArn": {
+            "description": "The ARN of the certificate after it has been imported into AWS Certificate Manager.",
+            "type": "string"
+        },
+        "HostedZoneId": {
+            "description": "The Route 53 Hosted Zone ID for your domain.",
+            "type": "string"
+        },
+        "DaysToExpiration": {
+            "description": "The number of days before the certificate expires.",
+            "type": "string"
+        },
+        "CertificatePEMArn": {
+            "description": "The ARN where the PEM for Certificate, CertificateChain and PrivateKey are stored in Secrets Manager as JSON.",
+            "type": "string"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "Email",
+        "Domain"
+    ],
+    "readOnlyProperties": [
+        "/properties/CertificateArn",
+        "/properties/DaysToExpiration",
+        "/properties/CertificatePEMArn"
+    ],
+    "primaryIdentifier": [
+        "/properties/Domain"
+    ],
+    "handlers": {
+        "create": {
+            "permissions": [
+                "route53:ChangeResourceRecordSets",
+                "route53:GetChange",
+                "route53:GetChangeDetails",
+                "route53:ListHostedZones",
+                "iam:ListServerCertificates",
+                "iam:GetServerCertificate",
+                "iam:UploadServerCertificate",
+                "secretsmanager:DescribeSecret",
+                "secretsmanager:GetSecret"
+            ]
+        },
+        "read": {
+            "permissions": [
+                "route53:GetChange",
+                "route53:GetChangeDetails",
+                "route53:ListHostedZones",
+                "iam:ListServerCertificates",
+                "iam:GetServerCertificate"
+            ]
+        },
+        "delete": {
+            "permissions": [
+                "route53:ChangeResourceRecordSets"
+            ]
+        }
+    }
+}

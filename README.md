@@ -1,9 +1,9 @@
-# AK::LetsEncrypt::Certificate
+# Custom::LetsEncrypt::Certificate
 
 Congratulations on starting development! Next steps:
 
-1. Write the JSON schema describing your resource, `ak-letsencrypt-certificate.json`
-2. Implement your resource handlers in `ak_letsencrypt_certificate/handlers.py`
+1. Write the JSON schema describing your resource, `custom-letsencrypt-certificate.json`
+2. Implement your resource handlers in `custom_letsencrypt_certificate/handlers.py`
 
 > Don't modify `models.py` by hand, any modifications will be overwritten when the `generate` or `package` commands are run.
 

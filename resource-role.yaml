@@ -23,11 +23,15 @@ Resources:
             Statement:
               - Effect: Allow
                 Action:
-                - "initech:CreateReport"
-                - "initech:DeleteReport"
-                - "initech:DescribeReport"
-                - "initech:ListReports"
-                - "initech:UpdateReport"
+                - "iam:GetServerCertificate"
+                - "iam:ListServerCertificates"
+                - "iam:UploadServerCertificate"
+                - "route53:ChangeResourceRecordSets"
+                - "route53:GetChange"
+                - "route53:GetChangeDetails"
+                - "route53:ListHostedZones"
+                - "secretsmanager:DescribeSecret"
+                - "secretsmanager:GetSecret"
                 Resource: "*"
 Outputs:
   ExecutionRoleArn:
